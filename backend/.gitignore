@@ -1,0 +1,25 @@
+# Dépendances Node
+node_modules/
+
+# Logs
+*.log
+
+# Fichiers CSV (contacts et tracking)
+*.csv
+
+# Dossier tracking (si vous préférez ignorer tout ce qu'il contient)
+tracking/
+
+# Éventuels exécutables générés
+*.exe
+
+# Env file
+.env
+
+# Cache ou dossiers temporaires (optionnel)
+.nyc_output/
+coverage/
+dist/
+build/
+
+package-lock.json

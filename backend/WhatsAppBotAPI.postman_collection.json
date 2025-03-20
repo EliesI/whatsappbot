@@ -1,0 +1,567 @@
+{
+    "info": {
+      "_postman_id": "7d1e3c26-6c7f-45f8-9d5f-0b1234567890",
+      "name": "WhatsApp Bot API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": "Collection pour tester l'API du WhatsApp Bot avec authentification, bot, contacts et tracking."
+    },
+    "item": [
+      {
+        "name": "Authentication",
+        "item": [
+          {
+            "name": "Admin Login (/login)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"yourpassword\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/login",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "login"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "User Registration (/users/register)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"john\",\n  \"password\": \"secret\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/users/register",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users",
+                  "register"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "User Login (/users/login)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"john\",\n  \"password\": \"secret\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/users/login",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users",
+                  "login"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "User Management",
+        "item": [
+          {
+            "name": "Get All Users (/users)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/users",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get User by ID (/users/1)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/users/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update User (/users/1)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"john_updated\",\n  \"password\": \"newsecret\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/users/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete User (/users/1)",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/users/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "users",
+                  "1"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Bot",
+        "item": [
+          {
+            "name": "Start Bot (/start)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"chosenType\": \"Prosp\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/start",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "start"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Misc",
+        "item": [
+          {
+            "name": "Get Logs (/logs)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/logs",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "logs"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get QR Code (/qr)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/qr",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "qr"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Contacts",
+        "item": [
+          {
+            "name": "Get All Contacts (/contacts)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/contacts",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "contacts"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Create Contact (/contacts)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Alice\",\n  \"number\": \"1234567890\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/contacts",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "contacts"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Contact (/contacts/:number)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Alice Updated\",\n  \"number\": \"1234567890\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/contacts/1234567890",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "contacts",
+                  "1234567890"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Contact (/contacts/:number)",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/contacts/1234567890",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "contacts",
+                  "1234567890"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Tracking",
+        "item": [
+          {
+            "name": "Get All Tracking Files (/tracking)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/tracking",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "tracking"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Tracking File (/tracking/:filename)",
+            "request": {
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/tracking/myfile.csv",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "tracking",
+                  "myfile.csv"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Create Tracking File (/tracking)",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"filename\": \"new-tracking.csv\",\n  \"contacts\": [\n    { \"name\": \"Alice\", \"number\": \"1234567890\" },\n    { \"name\": \"Bob\", \"number\": \"0987654321\" }\n  ]\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/tracking",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "tracking"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Tracking File (/tracking/:filename)",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"contacts\": [\n    { \"name\": \"Alice Updated\", \"number\": \"1234567890\" },\n    { \"name\": \"Bob Updated\", \"number\": \"0987654321\" }\n  ]\n}"
+              },
+              "url": {
+                "raw": "http://localhost:3000/tracking/new-tracking.csv",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "tracking",
+                  "new-tracking.csv"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Tracking File (/tracking/:filename)",
+            "request": {
+              "method": "DELETE",
+              "header": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:3000/tracking/new-tracking.csv",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "tracking",
+                  "new-tracking.csv"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  
